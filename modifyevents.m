@@ -1,6 +1,5 @@
 function [heelstrike, toeoff, i] = modifyevents(Cycles, wx_dx_smooth, wx_sx_smooth, heelstrike, toeoff, fc_IMU, i)
 
-
 while i <= length(Cycles.nCycle)
 
     close all

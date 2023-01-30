@@ -12,17 +12,16 @@ for i=1:length(Cycles_sx.nCycle)
 
     hold on, zoom on
     xline(Cycles_sx.start_ind(Cycles_sx.nCycle(i))/fc_IMU,'LineWidth',2,'Label' ...
-        ,sprintf(' START CYCLE n. %d ', Cycles_sx.nCycle(i)), 'Color', 'b')
+        ,sprintf(' START REP #%d ', Cycles.nCycle(i)), 'Color', 'b')
     xline(Cycles_sx.end_ind(Cycles_sx.nCycle(i))/fc_IMU,'LineWidth',2,'Label', ...
-        sprintf(' END CYCLE n. %d ', Cycles_sx.nCycle(i)), 'Color', 'r')
+        sprintf(' END REP #%d ', Cycles.nCycle(i)), 'Color', 'r')
 end
 grid on, grid minor
 
-t = title(['\bfCheck\rm for the Cycles \bfSTART and END point\rm for the' ...
-    ' \bfLEFT FOOT\rm and press Enter to choose whether to accept or' ...
+t = title(['\bfCheck\rm for \bfSTART and END points\rm of Reps for' ...
+    ' \bfLEFT FOOT\rm, Enter to choose whether to accept or' ...
     ' change them'])
-s = subtitle('\rmBe sure to \bfmark down\rm which cycles you want to change!')
-t.FontSize = 18;
+s = subtitle('\rmBe sure to \bfmark down\rm which reps you want to change!')
 t.FontAngle = "italic"
 t.FontName = 'Century Gothic'
 t.Color = 	'#A2142F';
@@ -37,7 +36,7 @@ pause;
 % User choice between accepting or modifying indexes
 opts.Interpreter = 'tex';
 opts.Default = 'Accept';
-answer = questdlg(['\fontsize{11}\fontname{Century Gothic}Do you accept' ...
+answer = questdlg(['\fontsize{11}\fontname{Arial}Do you accept' ...
     ' these start and end points?'], ...
     'Accept or Change', ...
     'Accept','Choose which ones to change', 'Change All' , opts);
@@ -58,7 +57,7 @@ switch answer
         end
 
         [listind,tf] = listdlg('ListString',list,'Name','nCycle', ...
-            'PromptString',['Select the cycles whose indices you want to' ...
+            'PromptString',['Select the reps whose indices you want to' ...
             ' change:'],'OKString','Proceed','ListSize',[300,450]);
         [Cycles_sx] = changeindex_sx(listind,t_imu, wx_sx_smooth, ...
             Cycles_sx, fc_IMU);
@@ -74,8 +73,8 @@ switch answer
         grid minor
         ylabel('Angular Velocity')
         xlabel('Time (s)')
-        t = title(['\rmchoose new \bfSTART point\rm for \bfcycle' ...
-            ' #' num2str(i) '\rm and press ENTER'])
+        t = title(['\rmchoose new \bfSTART point\rm for \bfrep' ...
+            ' #' num2str(i) '\rm, then press ENTER'])
         t.FontSize = 20;
         t.FontAngle = "italic"
         t.FontName = 'Century Gothic'
@@ -95,15 +94,14 @@ switch answer
         grid minor
         ylabel('Angular Velocity')
         xlabel('Time (s)')
-        t = title(['\rmchoose new \bfEND point\rm for \bfcycle #' ...
-            num2str(i) '\rm and press ENTER'])
+        t = title(['\rmchoose new \bfEND point\rm for \bfrep #' ...
+            num2str(i) '\rm, then press ENTER'])
         t.FontSize = 20;
         t.FontAngle = "italic"
         t.FontName = 'Century Gothic'
         xline(Cycles_sx.start_ind/fc_IMU,'LineWidth',2,'Label', ...
-            ' START CYCLE', 'Color', 'b')
-        xline(Cycles_sx.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', ...
-            'Color', 'b')
+            ' START REP', 'Color', 'b')
+      
      
 
         [endind , y] = ginput();
@@ -116,24 +114,24 @@ switch answer
         grid minor
         ylabel('Angular Velocity')
         xlabel('Time (s)')
-        t = title(['\rmchoose new \bfEND point\rm for \bfcycle #' ...
+        t = title(['\rmchoose new \bfEND point\rm for \bfrep #' ...
             num2str(i) '\rm and press ENTER'])
         t.FontSize = 20;
         t.FontAngle = "italic"
         t.FontName = 'Century Gothic'
         xline(Cycles_sx.start_ind/fc_IMU,'LineWidth',2,'Label', ...
-            ' START CYCLE', 'Color', 'b')
-        xline(Cycles_sx.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', ...
+            ' START REP', 'Color', 'b')
+        xline(Cycles_sx.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', ...
             'Color', 'r')
         grid minor
       
 
 
 
-        opts.Interpreter = 'tex';
+         opts.Interpreter = 'tex';
         opts.Default = 'Continue';
-        answer1 = questdlg(['\fontsize{11}\fontname{Century Gothic}' ...
-            'Do you want to continue for other cycles?'], ...
+        answer1 = questdlg(['\fontsize{11}\fontname{Arial}' ...
+            'Do you want to add other reps?'], ...
             'Continue or Stop', ...
             'Continue','End', opts);
 

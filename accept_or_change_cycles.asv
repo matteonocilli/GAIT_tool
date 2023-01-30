@@ -37,7 +37,7 @@ pause;
 % User choice between accepting or modifying indexes
 opts.Interpreter = 'tex';
 opts.Default = 'Accept';
-answer = questdlg(['\fontsize{11}\fontname{Arial}Do you accept' ...
+answer = questdlg(['\fontsize{11}\fontname{Century Gothic}Do you accept' ...
     ' these start and end points?'], ...
     'Accept or Change', ...
     'Accept','Choose which ones to change', 'Change All' , opts);
@@ -54,11 +54,11 @@ switch answer
         close(h.myfig)
 
         for i=1:length(Cycles.nCycle)
-            list{i} = sprintf(' Rep # %d',(Cycles.nCycle(i)));
+            list{i} = sprintf(' Cycle # %d',(Cycles.nCycle(i)));
         end
 
         [listind,tf] = listdlg('ListString',list,'Name','nCycle', ...
-            'PromptString',['Select the reps whose indices you want to' ...
+            'PromptString',['Select the cycles whose indices you want to' ...
             ' change:'],'OKString','Proceed','ListSize',[300,450]);
         [Cycles] = changeindex(listind,t_imu, wx_dx_smooth, ...
             Cycles, fc_IMU);
@@ -101,8 +101,9 @@ switch answer
         t.FontAngle = "italic"
         t.FontName = 'Century Gothic'
         xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label', ...
-            ' START REP', 'Color', 'b')
-        
+            ' START CYCLE', 'Color', 'b')
+        xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', ...
+            'Color', 'b')
      
 
         [endind , y] = ginput();
@@ -114,15 +115,15 @@ switch answer
         plot(t_imu, wx_dx_smooth, 'Color','#EDB120'), hold on, zoom on,
         grid minor
         ylabel('Angular Velocity')
-        xlabel('Time (s)')
+        xlabel('Time [sec]')
         t = title(['\rmchoose new \bfEND point\rm for \bfrep #' ...
             num2str(i) '\rm, then press ENTER'])
         t.FontSize = 20;
         t.FontAngle = "italic"
         t.FontName = 'Century Gothic'
         xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label', ...
-            ' START REP', 'Color', 'b')
-        xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', ...
+            ' START CYCLE', 'Color', 'b')
+        xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', ...
             'Color', 'r')
         grid minor
       
