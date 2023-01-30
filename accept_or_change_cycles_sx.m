@@ -12,9 +12,9 @@ for i=1:length(Cycles_sx.nCycle)
 
     hold on, zoom on
     xline(Cycles_sx.start_ind(Cycles_sx.nCycle(i))/fc_IMU,'LineWidth',2,'Label' ...
-        ,sprintf(' START REP #%d ', Cycles.nCycle(i)), 'Color', 'b')
+        ,sprintf(' START REP #%d ', Cycles_sx.nCycle(i)), 'Color', 'b')
     xline(Cycles_sx.end_ind(Cycles_sx.nCycle(i))/fc_IMU,'LineWidth',2,'Label', ...
-        sprintf(' END REP #%d ', Cycles.nCycle(i)), 'Color', 'r')
+        sprintf(' END REP #%d ', Cycles_sx.nCycle(i)), 'Color', 'r')
 end
 grid on, grid minor
 
