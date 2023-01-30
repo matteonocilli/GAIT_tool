@@ -19,7 +19,7 @@ while i <= length(listind)
     h.myfig = figure('units','normalized','outerposition',[0 0 1 1]);
     plot(t_imu(start_imu:end_imu), wx_dx_smooth(start_imu:end_imu), ...
         'Color','#EDB120'), hold on, zoom on, grid minor
-    t = title(['\rmchoose new \bfSTART point\rm for \bfcycle #' num2str(listind(i)) '\rm and press ENTER'])
+    t = title(['\rmchoose new \bfSTART point\rm for \bfrep #' num2str(listind(i)) '\rm, then press ENTER'])
     s = subtitle('If you don''t want to change the start point just press ENTER')
     t.FontSize = 18;
     t.FontAngle = "italic"
@@ -45,7 +45,7 @@ while i <= length(listind)
     h.myfig = figure('units','normalized','outerposition',[0 0 1 1])
     plot(t_imu(start_imu:end_imu),wx_dx_smooth(start_imu:end_imu), ...
         'Color','#EDB120'), hold on, zoom on, grid minor
-    t = title(['\rmchoose new \bfEND point\rm for \bfcycle #' num2str(listind(i)) '\rm and press ENTER'])
+    t = title(['\rmchoose new \bfEND point\rm for \bfrep #' num2str(listind(i)) '\rm, then press ENTER'])
     s = subtitle('If you don''t want to change the start point just press ENTER')
     t.FontSize = 18;
     t.FontAngle = "italic"

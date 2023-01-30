@@ -9,21 +9,21 @@ while q == 1;
     y(1) = subplot(2,1,1)
     plot(t_imu, wx_dx_smooth, 'Color','#EDB120'), hold on, zoom on, grid minor
     ylabel('Angular Velocity')
-    xlabel('Time [sec]')
-    t = title(['\rmchoose new \bfSTART point\rm for \bfcycle #' num2str(i) '\rm and press ENTER'])
-    t.FontSize = 20;
+    xlabel('Time (s)')
+    t = title(['\rmchoose new \bfSTART point\rm for \bfrep #' num2str(i) '\rm, then press ENTER'])
+    t.FontSize = 18;
     t.FontAngle = "italic"
     t.FontName = 'Century Gothic'
-    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', 'Color', 'b')
-    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', 'Color', 'r')
+    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START REP', 'Color', 'b')
+    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', 'Color', 'r')
     y(2) = subplot(2,1,2)
     plot(t_emg, emg_dx, 'Color','#EDB120'), hold on, zoom on
     ylabel('EMG signal')
-    xlabel('Time [sec]')
+    xlabel('Time (s)')
     grid minor
     linkaxes(y, 'x')
-    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', 'Color', 'b')
-    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', 'Color', 'r')
+    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START REP', 'Color', 'b')
+    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', 'Color', 'r')
 
     [startind , y] = ginput();
     Cycles.nCycle(i) = i;
@@ -36,21 +36,21 @@ while q == 1;
     y(1) = subplot(2,1,1)
     plot(t_imu, wx_dx_smooth, 'Color','#EDB120'), hold on, zoom on, grid minor
     ylabel('Angular Velocity')
-    xlabel('Time [sec]')
-    t = title(['\rmchoose new \bfSTART point\rm for \bfcycle #' num2str(i) '\rm and press ENTER'])
-    t.FontSize = 20;
+    xlabel('Time (s)')
+    t = title(['\rmchoose new \bfSTART point\rm for \bfrep #' num2str(i) '\rm, then press ENTER'])
+    t.FontSize = 18;
     t.FontAngle = "italic"
     t.FontName = 'Century Gothic'
-    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', 'Color', 'b')
-    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', 'Color', 'r')
+    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START REP', 'Color', 'b')
+    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', 'Color', 'r')
     y(2) = subplot(2,1,2)
     plot(t_emg, emg_dx, 'Color','#EDB120'), hold on, zoom on
     ylabel('EMG signal')
-    xlabel('Time [sec]')
+    xlabel('Time (s)')
     grid minor
     linkaxes(y, 'x')
-    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', 'Color', 'b')
-    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', 'Color', 'r')
+    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START REP', 'Color', 'b')
+    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', 'Color', 'r')
 
     [endind , y] = ginput();
     Cycles.end_ind(i) = round(endind*fc_IMU);
@@ -61,25 +61,26 @@ while q == 1;
     y(1) = subplot(2,1,1)
     plot(t_imu, wx_dx_smooth, 'Color','#EDB120'), hold on, zoom on, grid minor
     ylabel('Angular Velocity')
-    xlabel('Time [sec]')
-    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', 'Color', 'b')
-    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', 'Color', 'r')
+    xlabel('Time (s)')
+    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START REP', 'Color', 'b')
+    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', 'Color', 'r')
     y(2) = subplot(2,1,2)
     plot(t_emg, emg_dx, 'Color','#EDB120'), hold on, zoom on
     ylabel('EMG signal')
-    xlabel('Time [sec]')
+    xlabel('Time (s)')
     grid minor
     linkaxes(y, 'x')
-    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START CYCLE', 'Color', 'b')
-    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END CYCLE', 'Color', 'r')
+    xline(Cycles.start_ind/fc_IMU,'LineWidth',2,'Label',' START REP', 'Color', 'b')
+    xline(Cycles.end_ind/fc_IMU,'LineWidth',2,'Label',' END REP', 'Color', 'r')
 
 
-    opts.Interpreter = 'tex';
-    opts.Default = 'Continue';
-    answer1 = questdlg('\fontsize{11}\fontname{Century Gothic}Do you want to continue for other cycles?', ...
-        'Continue or Stop', ...
-        'Continue','Stop', opts);
-
+      opts.Interpreter = 'tex';
+        opts.Default = 'Continue';
+        answer1 = questdlg(['\fontsize{11}\fontname{Arial}' ...
+            'Do you want to add other reps?'], ...
+            'Continue or Stop', ...
+            'Continue','End', opts);
+        
     switch answer1
 
         case 'Continue'
