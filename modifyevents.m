@@ -30,10 +30,10 @@ while i <= length(Cycles.nCycle)
     zoom on
     legend('Signal Right Foot', 'Signal Left Foot', 'Heel Strike', 'Toe Off')
 
-    t = title(['Cycle #' num2str(i) ' Right Foot']), t.FontSize = 20, t.FontAngle = "italic",
+    t = title(['Rep #' num2str(i) ' Right Foot']), t.FontSize = 20, t.FontAngle = "italic",
     t.FontName = 'Century Gothic', t.Color = '#A2142F';
     s = subtitle(['\bfLeft click\rm to delete events, press \bfH\rm to add' ...
-        ' Heelstrike, \bfT\rm to add Toeoff, \bfEnter\rm to proceed with next Cycle'])
+        ' Heelstrike, \bfT\rm to add Toeoff, \bfEnter\rm to proceed with next Rep'])
     s.FontSize = 20, s.FontAngle = "italic", s.FontName = 'Century Gothic'
 
     [x,y,button] = ginput();

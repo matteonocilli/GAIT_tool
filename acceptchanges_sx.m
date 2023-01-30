@@ -12,8 +12,8 @@ scatter(toeoff_sx.index(toeoff_sx.nCycle == i)-start_imu, ...
 zoom on
 legend('Signal Right Foot', 'Signal Left Foot', 'Heel Strike', 'Toe Off')
 
-t = title(['\rmCheck the events for \bfcycle #' ...
-    num2str(i) ' \rmand press ENTER to continue']);
+t = title(['\rmCheck the events for \bfrep #' ...
+    num2str(i) ' \rm, then press ENTER to continue']);
 t.FontSize = 20;
 t.FontAngle = "italic"
 t.FontName = 'Century Gothic'
