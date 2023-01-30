@@ -22,6 +22,7 @@ t = title(['\bfCheck\rm for \bfSTART and END points\rm of Reps for' ...
     ' \bfLEFT FOOT\rm, Enter to choose whether to accept or' ...
     ' change them'])
 s = subtitle('\rmBe sure to \bfmark down\rm which reps you want to change!')
+t.FontSize = 18;
 t.FontAngle = "italic"
 t.FontName = 'Century Gothic'
 t.Color = 	'#A2142F';
