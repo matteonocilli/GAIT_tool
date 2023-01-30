@@ -8,10 +8,10 @@ for i=1:length(Cycles.nCycle)
     ax.XLim = [Cycles.start_ind(1)-2*fc_IMU Cycles.end_ind(end)+2*fc_IMU];
     hold on, zoom on
     xline(Cycles.start_ind(Cycles.nCycle(i)),'LineWidth',2, ...
-        'Label',sprintf(' START CYCLE n. %d ', Cycles.nCycle(i)), ...
+        'Label',sprintf(' START REP #%d ', Cycles.nCycle(i)), ...
         'Color', 'b')
     xline(Cycles.end_ind(Cycles.nCycle(i)),'LineWidth',2,'Label', ...
-        sprintf(' END CYCLE n. %d ', Cycles.nCycle(i)), 'Color', 'r')
+        sprintf(' END REP #%d ', Cycles.nCycle(i)), 'Color', 'r')
 end
 hold on
 p2 = scatter(heelstrike.index, heelstrike.peak, 'r', 'filled', 'o');
@@ -31,11 +31,10 @@ for i=1:length(Cycles_sx.nCycle)
     ax.XLim = [Cycles_sx.start_ind(1)-2*fc_IMU Cycles_sx.end_ind(end)+2*fc_IMU];
     hold on, zoom on
     xline(Cycles_sx.start_ind(Cycles_sx.nCycle(i)),'LineWidth',2, ...
-        'Label',sprintf(' START CYCLE n. %d ', Cycles_sx.nCycle(i)), 'Color', 'b')
+        'Label',sprintf(' START REP #%d ', Cycles_sx.nCycle(i)), 'Color', 'b')
     xline(Cycles_sx.end_ind(Cycles_sx.nCycle(i)),'LineWidth',2, ...
-        'Label', sprintf(' END CYCLE n. %d ', Cycles_sx.nCycle(i)), ...
+        'Label', sprintf(' END REP #%d ', Cycles_sx.nCycle(i)), ...
         'Color', 'r')
-    title('Cycles for LEFT FOOT')
 end
 hold on
 p6 = scatter(heelstrike_sx.index, heelstrike_sx.peak, 'r', 'filled', 'o');
