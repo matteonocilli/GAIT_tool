@@ -1,7 +1,8 @@
 function [Cycles_sx] = accept_or_change_cycles_sx(Cycles_sx, t_imu, ...
     wx_sx_smooth, fc_IMU)
 
-% Plot the signal with the indices selected
+% See "accept_or_change_cycles" function for comments
+
 h.myfig = figure('units','normalized','outerposition',[0 0 1 1]);
 
 plot(t_imu,wx_sx_smooth, 'Color','#EDB120'),

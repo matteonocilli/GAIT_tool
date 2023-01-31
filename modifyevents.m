@@ -1,5 +1,18 @@
 function [heelstrike, toeoff, i] = modifyevents(Cycles, wx_dx_smooth, wx_sx_smooth, heelstrike, toeoff, fc_IMU, i)
 
+% The function starts by plotting the signals for the right and left feet
+% along with the current heel strike and toe off events. It then opens
+% an interactive plot allowing the user to delete or add events by clicking
+% the mouse or pressing keys. The function plots the signals and events and allows 
+% the user to delete an event by clicking on it. The user can also add 
+% a heel strike or toe off event by clicking on the signal and pressing 
+% the 'H' or 'T' key, respectively.
+% 
+% Once the user has made the necessary modifications, they press the 
+% 'Enter' key to proceed to the next rep. The modified heel strike and 
+% toe off events are returned as the function outputs 
+% "heelstrike" and "toeoff".
+
 while i <= length(Cycles.nCycle)
 
     close all

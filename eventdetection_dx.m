@@ -1,12 +1,19 @@
   function [initSwing, endSwing, toeoff, heelstrike] = ...
 eventdetection_dx(Cycles, wx_dx_smooth, fc_IMU)
 
-% This function is responsible for detecting events for the right foot.
-% To do this, the start and end points of the Swing are first detected 
-% with a zero crossing of the signal and a thresholding on the maxima 
-% between zerocrossing points. 
-% The TO will be the first minimum before the initSwing point detected,
-% and the HS will be the first maximum after the endSwing point detected.
+
+% This function performs event detection on a set of gait reps. 
+
+% The function first separates positive and negative values from
+% "wx_dx_smooth" in order to set a threshold value for detecting
+% the start and end of the swing phase based on the mean of positive values.
+% The function then detects zero-crossing points in "wx_dx_smooth" 
+% and uses the threshold for the swing phase and the
+% identified zero-crossing points to determine the start and end of the
+% swing phase for each gait rep. 
+% TO will be the first minimum before the initSwing point detected, 
+% and HS will be the first first minimum after the endSwing point detected.
+
 
 for n = 1:length(Cycles.nCycle)
     wx_dx_cut = []

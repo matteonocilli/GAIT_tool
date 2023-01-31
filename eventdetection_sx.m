@@ -2,12 +2,7 @@ function [initSwingsx, endSwingsx, toeoff_sx, heelstrike_sx] = ...
     eventdetection_sx(Cycles_sx, wx_sx_smooth, fc_IMU)
 
 
-% This function is responsible for detecting events for the right foot.
-% To do this, the start and end points of the Swing are first detected 
-% with a zero crossing of the signal and a thresholding on the maxima 
-% between zerocrossing points. 
-% The TO will be the first minimum before the initSwing point detected,
-% and the HS will be the first maximum after the endSwing point detected.
+% See "eventdetection_dx" function for comments
 
 for n = 1:length(Cycles_sx.nCycle)
     wx_sx_cut = []

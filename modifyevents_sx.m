@@ -1,5 +1,6 @@
 function [heelstrike_sx, toeoff_sx, i] = modifyevents_sx(Cycles_sx, wx_dx_smooth, wx_sx_smooth, heelstrike_sx, toeoff_sx, fc_IMU, i)
 
+% See "modifyevents" function for comments
 
 while i <= length(Cycles_sx.nCycle)
 

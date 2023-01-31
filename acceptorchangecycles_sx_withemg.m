@@ -1,6 +1,7 @@
 function [Cycles_sx] = acceptorchangecycles_sx_withemg(Cycles_sx, t_imu, ...
     t_emg, wx_sx_smooth, emg_sx, fc_IMU, fc_EMG)
 
+% See "acceptorchangecycles_withemg" function for comments
 
 h.myfig = figure('units','normalized','outerposition',[0 0 1 1]);
 

@@ -1,7 +1,20 @@
 function [Cycles, Turning] = accept_or_change_cycles(Cycles, t_imu, ...
     wx_dx_smooth, fc_IMU)
 
-% Plot the signal with the indices selected
+% This function is used to select or modify start and end points
+% of a series of reps of walking. 
+% The reps are indicated by the vertical blue lines (start) and 
+% red lines (end) on the plot, which are annotated with their rep number.
+% 
+% The function displays the plot and waits for the user to choose whether
+% to accept the reps or modify them. If the user chooses to accept, 
+% the plot is closed. If the user chooses to modify, they are prompted 
+% to select which reps to change. If the user chooses to change all reps,
+% new start and end points for each cycle are selected interactively by
+% clicking on the plot.
+% 
+% The output is the modified Cycles table.
+
 h.myfig = figure('units','normalized','outerposition',[0 0 1 1]);
 
 plot(t_imu,wx_dx_smooth, 'Color','#EDB120'),

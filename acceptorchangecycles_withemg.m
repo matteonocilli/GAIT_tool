@@ -1,7 +1,23 @@
 function [Cycles, Turning] = acceptorchangecycles_withemg(Cycles, t_imu, t_emg, ...
     wx_dx_smooth, emg_dx, fc_IMU, fc_EMG)
 
-% Plot the signal with the indices selected
+% This function is used to select or modify start and end points
+% of a series of reps of walking when EMG signals are included. 
+% The function creates a figure with two subplots, one for the
+% angular velocity and one for the EMG signal, used as an additional aid 
+% to the user.
+% The reps are indicated by the vertical blue lines (start) and 
+% red lines (end) on the plot, which are annotated with their rep number.
+% 
+% The function displays the plot and waits for the user to choose whether
+% to accept the reps or modify them. If the user chooses to accept, 
+% the plot is closed. If the user chooses to modify, they are prompted 
+% to select which reps to change. If the user chooses to change all reps,
+% new start and end points for each cycle are selected interactively by
+% clicking on the plot.
+% 
+% The output is the modified Cycles table.
+
 h.myfig = figure('units','normalized','outerposition',[0 0 1 1]);
 
 y(1) = subplot(2,1,1)
